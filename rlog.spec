@@ -8,6 +8,7 @@ Group:		Development/Libraries/C and C++
 Source0:	http://arg0.net/users/vgough/download/%{name}-%{version}.tgz
 # Source0-md5:	e918c6854529249f39eae37722719133
 URL:		http://pobox.com/~vgough/rlog
+BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
