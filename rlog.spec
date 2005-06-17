@@ -26,6 +26,7 @@ Summary:	Header files for rlog
 Summary(pl):	Pliki nag³ówkowe biblioteki rlog
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 The header files are only needed for development of programs using the
