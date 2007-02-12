@@ -1,5 +1,5 @@
 Summary:	Runtime Logging for C++
-Summary(pl):	Logowanie w czasie dzia≥ania programu dla C++
+Summary(pl.UTF-8):   Logowanie w czasie dzia≈Çania programu dla C++
 Name:		rlog
 Version:	1.3.7
 Release:	1
@@ -16,14 +16,14 @@ Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 RLog provides a flexible message logging facility for C++ programs and
 libraries. It is meant to be fast enough to leave in production code.
 
-%description -l pl
-RLog dostarcza elastyczne u≥atwienia do logowania komunikatÛw dla
-programÛw i bibliotek w C++. Ma byÊ wystarczaj±co szybki do
+%description -l pl.UTF-8
+RLog dostarcza elastyczne u≈Çatwienia do logowania komunikat√≥w dla
+program√≥w i bibliotek w C++. Ma byƒá wystarczajƒÖco szybki do
 pozostawienia w kodzie produkcyjnym.
 
 %package devel
 Summary:	Header files for rlog
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki rlog
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki rlog
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -32,8 +32,8 @@ Requires:	libstdc++-devel
 The header files are only needed for development of programs using the
 rlog.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe do tworzenia programÛw przy uøyciu rloga.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe do tworzenia program√≥w przy u≈ºyciu rloga.
 
 %prep
 %setup -q
