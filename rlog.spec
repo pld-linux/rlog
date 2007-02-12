@@ -1,5 +1,5 @@
 Summary:	Runtime Logging for C++
-Summary(pl.UTF-8):   Logowanie w czasie działania programu dla C++
+Summary(pl.UTF-8):	Logowanie w czasie działania programu dla C++
 Name:		rlog
 Version:	1.3.7
 Release:	1
@@ -23,7 +23,7 @@ pozostawienia w kodzie produkcyjnym.
 
 %package devel
 Summary:	Header files for rlog
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki rlog
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki rlog
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
