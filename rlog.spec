@@ -10,7 +10,7 @@ Source0:	http://arg0.net/users/vgough/download/%{name}-%{version}.tgz
 URL:		http://pobox.com/~vgough/rlog/
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 RLog provides a flexible message logging facility for C++ programs and
