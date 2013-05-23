@@ -1,13 +1,18 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library build
+#
 Summary:	Runtime Logging for C++
 Summary(pl.UTF-8):	Logowanie w czasie działania programu dla C++
 Name:		rlog
-Version:	1.3.7
+Version:	1.4
 Release:	1
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://arg0.net/users/vgough/download/%{name}-%{version}.tgz
-# Source0-md5:	a3bc4e4d9d2b838fdc32e6de64270b68
-URL:		http://pobox.com/~vgough/rlog/
+#Source0Download: http://code.google.com/p/rlog/downloads/list
+Source0:	http://rlog.googlecode.com/files/%{name}-%{version}.tar.gz
+# Source0-md5:	c29f74e0f50d66b20312d049b683ff82
+URL:		http://www.arg0.net/rlog
 BuildRequires:	libstdc++-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,11 +40,24 @@ rlog.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe do tworzenia programów przy użyciu rloga.
 
+%package static
+Summary:	Static rlog library
+Summary(pl.UTF-8):	Statyczna biblioteka rlog
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static rlog library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka rlog.
+
 %prep
 %setup -q
 
 %build
-%configure
+%configure \
+	%{?with_static_libs:--enable-static}
 %{__make}
 
 %install
@@ -47,6 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/rlog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,13 +78,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/librlog.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/librlog.so.5
 
 %files devel
 %defattr(644,root,root,755)
 %doc docs/html/ docs/latex/refman.pdf
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/*.la
-%dir %{_includedir}/rlog
-%{_includedir}/rlog/*.h
-%{_pkgconfigdir}/*.pc
+%attr(755,root,root) %{_libdir}/librlog.so
+%{_libdir}/librlog.la
+%{_includedir}/rlog
+%{_pkgconfigdir}/librlog.pc
+
+%if %{with static_libs}
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/librlog.a
+%endif
