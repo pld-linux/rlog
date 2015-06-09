@@ -6,7 +6,7 @@ Summary:	Runtime Logging for C++
 Summary(pl.UTF-8):	Logowanie w czasie działania programu dla C++
 Name:		rlog
 Version:	1.4
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/rlog/downloads/list
